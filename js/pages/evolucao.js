@@ -1,4 +1,5 @@
-import { currentUser, derived, initShell, requireAuth, TRACKS, LESSONS, EXERCISES } from "./app.js";
+import { currentUser, derived, initShell, requireAuth, TRACKS, LESSONS, EXERCISES } from "../core/app.js";
+import { salaUrl } from "../core/routes.js";
 
 const user = requireAuth();
 if (!user) throw new Error("auth");
@@ -45,7 +46,7 @@ document.querySelector("[data-curve]").innerHTML = `
       const [x, y] = points[index];
       const done = user.aulasConcluidas.includes(lesson.id);
       return `
-        <a class="node" href="sala.html?aula=${lesson.id}">
+        <a class="node" href="${salaUrl(lesson.id)}">
           <circle cx="${x}" cy="${y}" r="${done ? 14 : 10}" fill="${done ? "#3ee0a0" : "#181822"}" />
           <text x="${x}" y="${y + 32}" text-anchor="middle">${index + 1}. ${lesson.titulo.split(":")[0].slice(0, 18)}</text>
         </a>

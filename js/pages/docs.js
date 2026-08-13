@@ -1,6 +1,7 @@
-import { initShell, TRACKS } from "./app.js";
-import { lessonById } from "./curriculum.js";
-import { DOCS } from "./docs-data.js";
+import { initShell, TRACKS } from "../core/app.js";
+import { lessonById } from "../data/curriculum.js";
+import { DOCS } from "../data/docs-data.js";
+import { ROUTES, salaUrl } from "../core/routes.js";
 
 initShell("docs");
 
@@ -106,7 +107,7 @@ function render() {
     ${doc.blocos.map(renderBloco).join("")}
     <p class="doc-related">
       Aula ligada:
-      <a href="sala.html?aula=${aula.id}">${escapeHtml(aula.titulo)}</a>
+      <a href="${salaUrl(aula.id)}">${escapeHtml(aula.titulo)}</a>
     </p>
   `;
 
@@ -123,7 +124,7 @@ function render() {
 }
 
 search.addEventListener("input", () => {
-  history.replaceState({}, "", "docs.html");
+  history.replaceState({}, "", ROUTES.docs);
   render();
 });
 

@@ -8,13 +8,13 @@ const PUBLIC_PAGES = [
     description: /JavaScript/i,
   },
   {
-    path: "/cadastro.html",
+    path: "/pages/cadastro.html",
     title: /Cadastro/i,
     h1: /matrícula|sessão/i,
     description: /matrícula|aluno/i,
   },
   {
-    path: "/docs.html",
+    path: "/pages/docs.html",
     title: /Documentação/i,
     h1: /léxico da linguagem/i,
     description: /Documentação de JavaScript/i,
@@ -39,7 +39,7 @@ const STATUS_LABELS = [
 
 async function matricular(page, suffix = `${Date.now()}-${Math.random().toString(16).slice(2)}`) {
   const email = `ada.${suffix}@codice.js`;
-  await page.goto("/cadastro.html");
+  await page.goto("/pages/cadastro.html");
   await page.getByLabel("Nome completo").fill("Ada Lovelace");
   await page.getByLabel("E-mail").fill(email);
   await page.getByLabel("Senha", { exact: true }).fill("helixjs");
@@ -129,21 +129,21 @@ test.describe("Layout e identidade visual", () => {
   });
 
   test("favicon svg e ico estão ligados e respondem", async ({ page, request }) => {
-    const svg = await request.get("/favicon.svg");
-    const ico = await request.get("/favicon.ico");
+    const svg = await request.get("/assets/favicon.svg");
+    const ico = await request.get("/assets/favicon.ico");
     expect(svg.ok()).toBeTruthy();
     expect(ico.ok()).toBeTruthy();
     expect(svg.headers()["content-type"]).toMatch(/svg/i);
     await page.goto("/index.html");
-    await expect(page.locator('link[rel="icon"][href="favicon.svg"]')).toHaveCount(1);
-    await expect(page.locator('link[rel="icon"][href="favicon.ico"]')).toHaveCount(1);
-    await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute("href", "apple-touch-icon.png");
+    await expect(page.locator('link[rel="icon"][href="/assets/favicon.svg"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="icon"][href="/assets/favicon.ico"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveAttribute("href", "/assets/apple-touch-icon.png");
   });
 });
 
 test.describe("Usabilidade e UX", () => {
   test("skip link e rótulos de formulário", async ({ page }) => {
-    await page.goto("/cadastro.html");
+    await page.goto("/pages/cadastro.html");
     await expect(page.locator(".skip-link")).toHaveAttribute("href", "#conteudo");
     await expect(page.getByLabel("Nome completo")).toBeVisible();
     await expect(page.getByLabel("E-mail")).toBeVisible();
@@ -164,7 +164,7 @@ test.describe("Usabilidade e UX", () => {
 test.describe("Funcionalidade da trilha", () => {
   test("sala de aula carrega vídeo e conclui aula", async ({ page }) => {
     await matricular(page, `sala-${Date.now()}`);
-    await page.goto("/sala.html");
+    await page.goto("/pages/sala.html");
     await expect(page.locator("h1")).toContainText(/iniciante à conclusão/i);
     await expect(page.locator(".player-frame iframe")).toHaveAttribute("src", /youtube\.com\/embed/);
     await page.getByRole("button", { name: "Marcar aula como concluída" }).click();
@@ -174,7 +174,7 @@ test.describe("Funcionalidade da trilha", () => {
 
   test("oficina corrige quiz e credita exercício", async ({ page }) => {
     await matricular(page, `ex-${Date.now()}`);
-    await page.goto("/exercicios.html");
+    await page.goto("/pages/exercicios.html");
     await expect(page.locator("h1")).toContainText(/Exercícios/i);
     await page.getByRole("button", { name: "const nome = 'Ada'" }).click();
     await expect(page.locator("[data-quiz-feedback]")).toContainText(/const impede/i);
@@ -183,7 +183,7 @@ test.describe("Funcionalidade da trilha", () => {
 
   test("curva de aprendizado renderiza SVG com nós", async ({ page }) => {
     await matricular(page, `evo-${Date.now()}`);
-    await page.goto("/evolucao.html");
+    await page.goto("/pages/evolucao.html");
     await expect(page.locator("h1")).toContainText(/curva/i);
     await expect(page.locator(".curve-svg")).toBeVisible();
     await expect(page.locator(".curve-svg .node")).toHaveCount(8);
@@ -192,7 +192,7 @@ test.describe("Funcionalidade da trilha", () => {
 
 test.describe("Documentação", () => {
   test("sumário, artigo e busca por termo", async ({ page }) => {
-    await page.goto("/docs.html");
+    await page.goto("/pages/docs.html");
     await expect(page.getByRole("heading", { level: 1 })).toContainText(/léxico/i);
     await expect(page.getByLabel("Buscar na documentação")).toBeVisible();
     await expect(page.locator("[data-docs-toc] a")).toHaveCount(13);
@@ -218,7 +218,7 @@ test.describe("Responsividade", () => {
 
   test("cadastro empilha colunas no mobile", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto("/cadastro.html");
+    await page.goto("/pages/cadastro.html");
     const columns = await page.locator(".form-shell").evaluate((el) => getComputedStyle(el).gridTemplateColumns);
     expect(columns.split(" ").length).toBe(1);
   });

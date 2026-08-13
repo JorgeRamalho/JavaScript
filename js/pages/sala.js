@@ -5,8 +5,9 @@ import {
   requireAuth,
   TRACKS,
   LESSONS,
-} from "./app.js";
-import { lessonById, lessonsByTrack, nextLesson, prevLesson } from "./curriculum.js";
+} from "../core/app.js";
+import { lessonById, lessonsByTrack, nextLesson, prevLesson } from "../data/curriculum.js";
+import { salaUrl } from "../core/routes.js";
 
 const user = requireAuth();
 if (!user) throw new Error("auth");
@@ -34,7 +35,7 @@ function renderSyllabus() {
   host.querySelectorAll("[data-aula]").forEach((button) => {
     button.addEventListener("click", () => {
       current = lessonById(button.dataset.aula);
-      history.replaceState({}, "", `sala.html?aula=${current.id}`);
+      history.replaceState({}, "", salaUrl(current.id));
       paint();
     });
   });
@@ -69,13 +70,13 @@ document.querySelector("[data-complete]").addEventListener("click", () => {
 
 document.querySelector("[data-prev]").addEventListener("click", () => {
   current = prevLesson(current.id);
-  history.replaceState({}, "", `sala.html?aula=${current.id}`);
+  history.replaceState({}, "", salaUrl(current.id));
   paint();
 });
 
 document.querySelector("[data-next]").addEventListener("click", () => {
   current = nextLesson(current.id);
-  history.replaceState({}, "", `sala.html?aula=${current.id}`);
+  history.replaceState({}, "", salaUrl(current.id));
   paint();
 });
 

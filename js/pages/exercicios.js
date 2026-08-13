@@ -1,4 +1,4 @@
-import { currentUser, completeExercise, initShell, requireAuth, EXERCISES, TRACKS } from "./app.js";
+import { currentUser, completeExercise, initShell, requireAuth, EXERCISES, TRACKS } from "../core/app.js";
 
 const user = requireAuth();
 if (!user) throw new Error("auth");

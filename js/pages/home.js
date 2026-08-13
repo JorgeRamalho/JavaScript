@@ -1,8 +1,9 @@
-import { initShell, currentUser, TRACKS, LESSONS } from "./app.js";
+import { initShell, currentUser, TRACKS, LESSONS } from "../core/app.js";
+import { ROUTES } from "../core/routes.js";
 
 initShell("inicio");
 
-document.querySelector("[data-cta-primary]").href = currentUser() ? "aluno.html" : "cadastro.html";
+document.querySelector("[data-cta-primary]").href = currentUser() ? ROUTES.aluno : ROUTES.cadastro;
 document.querySelector("[data-cta-primary]").textContent = currentUser()
   ? "Continuar na área do aluno"
   : "Abrir matrícula";

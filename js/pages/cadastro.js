@@ -1,4 +1,5 @@
-import { currentUser, createStudent, hashPassword, login, saveUser, users, initShell } from "./app.js";
+import { currentUser, createStudent, hashPassword, login, saveUser, users, initShell } from "../core/app.js";
+import { ROUTES } from "../core/routes.js";
 
 const params = new URLSearchParams(location.search);
 const modoEntrar = params.get("modo") === "entrar";
@@ -57,7 +58,7 @@ form.addEventListener("submit", async (event) => {
       return;
     }
     login(email);
-    location.href = params.get("next") || "aluno.html";
+    location.href = params.get("next") || ROUTES.aluno;
     return;
   }
 
@@ -86,7 +87,7 @@ form.addEventListener("submit", async (event) => {
   saveUser(student);
   login(email);
   show("ok", "Matrícula criada. Abrindo a área do aluno…");
-  location.href = "aluno.html";
+  location.href = ROUTES.aluno;
 });
 
 if (currentUser() && !modoEntrar) {

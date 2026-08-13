@@ -6,19 +6,20 @@ import {
   XP_EXERCICIO,
   XP_POR_NIVEL,
   lessonById,
-} from "./curriculum.js";
+} from "../data/curriculum.js";
+import { ROUTES } from "./routes.js";
 
 const KEY_USERS = "codice.users";
 const KEY_SESSION = "codice.session";
 
 export const PAGES = [
-  { href: "index.html", label: "Início", id: "inicio" },
-  { href: "cadastro.html", label: "Cadastro", id: "cadastro" },
-  { href: "docs.html", label: "Documentação", id: "docs" },
-  { href: "aluno.html", label: "Área do aluno", id: "aluno", auth: true },
-  { href: "evolucao.html", label: "Evolução", id: "evolucao", auth: true },
-  { href: "sala.html", label: "Sala de aula", id: "sala", auth: true },
-  { href: "exercicios.html", label: "Exercícios", id: "exercicios", auth: true },
+  { href: ROUTES.inicio, label: "Início", id: "inicio" },
+  { href: ROUTES.cadastro, label: "Cadastro", id: "cadastro" },
+  { href: ROUTES.docs, label: "Documentação", id: "docs" },
+  { href: ROUTES.aluno, label: "Área do aluno", id: "aluno", auth: true },
+  { href: ROUTES.evolucao, label: "Evolução", id: "evolucao", auth: true },
+  { href: ROUTES.sala, label: "Sala de aula", id: "sala", auth: true },
+  { href: ROUTES.exercicios, label: "Exercícios", id: "exercicios", auth: true },
 ];
 
 function readJson(key, fallback) {
@@ -96,8 +97,8 @@ export function logout() {
 
 export function requireAuth() {
   if (currentUser()) return currentUser();
-  const next = encodeURIComponent(location.pathname.split("/").pop() || "aluno.html");
-  location.href = `cadastro.html?next=${next}&modo=entrar`;
+  const next = encodeURIComponent(location.pathname || ROUTES.aluno);
+  location.href = `${ROUTES.cadastro}?next=${next}&modo=entrar`;
   return null;
 }
 
@@ -217,7 +218,7 @@ export function renderHeader(pageId) {
   if (!host) return;
   const user = currentUser();
   host.innerHTML = `
-    <a class="brand" href="index.html" aria-label="Códice JS — início">
+    <a class="brand" href="${ROUTES.inicio}" aria-label="Códice JS — início">
       <div class="brand-mark" aria-hidden="true"><span>JS</span></div>
       <div class="brand-copy">
         <small>Observatório</small>
@@ -234,13 +235,13 @@ export function renderHeader(pageId) {
       ${
         user
           ? `<button class="btn btn-ghost" type="button" data-logout>Sair</button>`
-          : `<a class="btn btn-gold" href="cadastro.html">Entrar no Códice</a>`
+          : `<a class="btn btn-gold" href="${ROUTES.cadastro}">Entrar no Códice</a>`
       }
     </nav>
   `;
   host.querySelector("[data-logout]")?.addEventListener("click", () => {
     logout();
-    location.href = "index.html";
+    location.href = ROUTES.inicio;
   });
 }
 

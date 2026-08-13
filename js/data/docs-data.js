@@ -368,12 +368,12 @@ tick(); // 2`,
       {
         tipo: "code",
         caption: "O padrão deste portal",
-        codigo: `// js/curriculum.js
+        codigo: `// js/data/curriculum.js
 export const LESSONS = [ /* ... */ ];
 export function lessonById(id) { /* ... */ }
 
-// js/docs.js
-import { LESSONS } from "./curriculum.js";`,
+// js/pages/docs.js
+import { LESSONS } from "../data/curriculum.js";`,
       },
       {
         tipo: "lista",

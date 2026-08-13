@@ -1,5 +1,6 @@
-import { currentUser, derived, initShell, requireAuth, TRACKS, LESSONS, EXERCISES } from "./app.js";
-import { lessonsByTrack } from "./curriculum.js";
+import { currentUser, derived, initShell, requireAuth, TRACKS, LESSONS, EXERCISES } from "../core/app.js";
+import { lessonsByTrack } from "../data/curriculum.js";
+import { salaUrl } from "../core/routes.js";
 
 const user = requireAuth();
 if (!user) throw new Error("auth");
@@ -11,7 +12,7 @@ document.querySelector("[data-greet]").textContent = `Olá, ${user.nome.split(" 
 document.querySelector("[data-objetivo]").textContent = user.objetivo;
 document.querySelector("[data-continue-title]").textContent = stats.aulaAtual.titulo;
 document.querySelector("[data-continue-track]").textContent = stats.trilha;
-document.querySelector("[data-continue-link]").href = `sala.html?aula=${stats.aulaAtual.id}`;
+document.querySelector("[data-continue-link]").href = salaUrl(stats.aulaAtual.id);
 document.querySelector("[data-ring]").style.setProperty("--p", String(stats.progresso));
 document.querySelector("[data-ring-label]").textContent = `${stats.progresso}%`;
 
