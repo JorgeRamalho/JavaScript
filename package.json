@@ -1,0 +1,15 @@
+{
+  "name": "codice-js",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Códice — portal de estudos de JavaScript, do iniciante à conclusão.",
+  "scripts": {
+    "dev": "npx --yes serve . -p 4173",
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Códice JS — observatório de estudos de JavaScript</title>
+    <meta
+      name="description"
+      content="Portal de estudos de JavaScript: documentação da linguagem, área do aluno, sala de aula em vídeo e oficina de exercícios."
+    />
+    <meta name="keywords" content="JavaScript, curso, área do aluno, exercícios, sala de aula, CSS3, tipografia" />
+    <link rel="canonical" href="http://127.0.0.1:4173/index.html" />
+    <meta property="og:title" content="Códice JS — observatório de JavaScript" />
+    <meta property="og:description" content="Do primeiro console.log à conclusão da trilha, com identidade visual em ouro e tinta." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="theme-color" content="#07070b" />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Códice JS",
+        "description": "Portal de estudos de JavaScript do iniciante à conclusão.",
+        "inLanguage": "pt-BR",
+        "provider": { "@type": "EducationalOrganization", "name": "Códice JS" }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <header class="site-header" data-header></header>
+    <div class="status-bar" data-status-bar role="region" aria-label="Variáveis da sessão"></div>
+    <main id="conteudo">
+      <section class="wrap hero">
+        <div>
+          <p class="kicker">Escola exclusiva de JavaScript</p>
+          <h1>O arquivo vivo da linguagem, do <em>primeiro tipo</em> ao ofício.</h1>
+          <p class="lede">
+            Códice é um portal de estudos com matrícula, documentação da linguagem, sala de aula em vídeo
+            e uma curva de aprendizado que registra cada aula e cada exercício.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" data-cta-primary href="cadastro.html">Abrir matrícula</a>
+            <a class="btn btn-ghost" href="docs.html">Abrir documentação</a>
+            <a class="btn btn-ghost" href="sala.html">Ver a sala de aula</a>
+          </div>
+        </div>
+        <div class="orb-card" role="img" aria-label="Emblema JS em degradê cônico"></div>
+      </section>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>const · let · arrow function · closure · promise · async · event loop · prototype · module · fetch · map · reduce ·</span>
+          <span>const · let · arrow function · closure · promise · async · event loop · prototype · module · fetch · map · reduce ·</span>
+        </div>
+      </div>
+      <section class="wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Trilhas</p>
+            <h2>Quatro estações, um único idioma.</h2>
+          </div>
+          <p class="legend">Iniciante → intermediário → avançado → conclusão</p>
+        </div>
+        <div class="grid-4" data-home-tracks></div>
+      </section>
+      <section class="wrap section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Método</p>
+            <h2>Identidade, tipografia e interface como parte do estudo.</h2>
+          </div>
+        </div>
+        <div class="grid-4">
+          <article class="card">
+            <h3>Área do aluno</h3>
+            <p>Painel com anel de progresso, trilhas e o rastro das atividades. Cada variável da sessão vive na barra abaixo do cabeçalho.</p>
+          </article>
+          <article class="card">
+            <h3>Documentação</h3>
+            <p>Léxico da linguagem com busca, exemplos e um fio até a aula da sala. Aberta sem matrícula.</p>
+          </article>
+          <article class="card">
+            <h3>Sala de aula</h3>
+            <p>Vídeos do iniciante à conclusão, notas de aula e marcação de término que alimenta XP, liga e curva de aprendizado.</p>
+          </article>
+          <article class="card">
+            <h3>Oficina</h3>
+            <p>Questões objetivas e atividades de código ligadas ao tema de cada aula, com correção imediata.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" data-footer></footer>
+    <script type="module" src="js/home.js"></script>
+  </body>
+</html>

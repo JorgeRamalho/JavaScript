@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Documentação de JavaScript — Códice JS</title>
+    <meta
+      name="description"
+      content="Documentação de JavaScript do Códice: tipos, funções, DOM, promises, event loop e módulos, com exemplos e ligação às aulas."
+    />
+    <link rel="canonical" href="http://127.0.0.1:4173/docs.html" />
+    <meta property="og:title" content="Documentação de JavaScript — Códice JS" />
+    <meta property="og:description" content="Verbetes da linguagem alinhados às trilhas do observatório." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#07070b" />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Documentação de JavaScript — Códice JS",
+        "inLanguage": "pt-BR",
+        "about": "JavaScript"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <header class="site-header" data-header></header>
+    <div class="status-bar" data-status-bar role="region" aria-label="Variáveis da sessão"></div>
+    <main id="conteudo" class="wrap">
+      <header class="page-hero">
+        <p class="kicker">Documentação</p>
+        <h1>O léxico da linguagem, ao lado da trilha.</h1>
+        <p class="lede">
+          Verbetes curtos, exemplos em IBM Plex Mono e um fio até a aula correspondente. Busque por um termo ou abra o sumário por estação.
+        </p>
+      </header>
+      <section class="docs-layout">
+        <aside class="docs-rail">
+          <label class="field">
+            <span>Buscar na documentação</span>
+            <input id="docs-busca" type="search" placeholder="promise, const, DOM…" autocomplete="off" />
+          </label>
+          <p class="legend" data-docs-count></p>
+          <nav class="syllabus docs-toc" data-docs-toc aria-label="Sumário da documentação"></nav>
+        </aside>
+        <article class="docs-article lesson-notes" data-docs-stage></article>
+      </section>
+    </main>
+    <footer class="site-footer" data-footer></footer>
+    <script type="module" src="js/docs.js"></script>
+  </body>
+</html>

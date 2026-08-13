@@ -1,0 +1,82 @@
+:root {
+  --ink: #07070b;
+  --ink-2: #101018;
+  --ink-3: #181822;
+  --fog: #2a2a38;
+  --line: color-mix(in oklab, #f3ead8 14%, transparent);
+  --paper: #f3ead8;
+  --paper-dim: #cfc6b0;
+  --mute: #9a9384;
+  --gold: #e8c547;
+  --gold-deep: #c9a227;
+  --amber: #ff7a3c;
+  --jade: #3ee0a0;
+  --violet: #8b7cff;
+  --rose: #ff5d8f;
+  --sky: #6ec8ff;
+
+  --grad-aurora: linear-gradient(
+    125deg,
+    #e8c547 0%,
+    #ff7a3c 28%,
+    #ff5d8f 52%,
+    #8b7cff 76%,
+    #6ec8ff 100%
+  );
+  --grad-gold: linear-gradient(135deg, #fff4c2 0%, #e8c547 42%, #ff7a3c 100%);
+  --grad-ink: linear-gradient(180deg, #14141e 0%, #07070b 100%);
+  --grad-mesh: radial-gradient(ellipse 80% 60% at 12% -10%, #e8c54733, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% 0%, #8b7cff2e, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 80% 100%, #ff7a3c24, transparent 45%),
+    radial-gradient(ellipse 40% 30% at 0% 80%, #3ee0a01f, transparent 40%);
+  --grad-conic: conic-gradient(from 210deg, #e8c547, #ff7a3c, #ff5d8f, #8b7cff, #6ec8ff, #e8c547);
+
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-head: "Syne", "Trebuchet MS", sans-serif;
+  --font-body: "Figtree", "Segoe UI", sans-serif;
+  --font-code: "IBM Plex Mono", "Consolas", monospace;
+
+  --fs-hero: clamp(3.2rem, 8vw, 7.4rem);
+  --fs-display: clamp(2.4rem, 5vw, 4.6rem);
+  --fs-h1: clamp(2rem, 3.4vw, 3.25rem);
+  --fs-h2: clamp(1.45rem, 2.2vw, 2.05rem);
+  --fs-h3: clamp(1.12rem, 1.4vw, 1.35rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.125rem);
+  --fs-small: 0.8125rem;
+  --fs-micro: 0.6875rem;
+  --lh-tight: 1.05;
+  --lh-title: 1.15;
+  --lh-body: 1.65;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 5rem;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --shadow-gold: 0 0 0 1px #e8c54733, 0 18px 50px #e8c54714;
+  --shadow-lift: 0 24px 60px #00000066;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --header-h: 72px;
+  --status-h: 58px;
+  --z-header: 40;
+  --z-status: 35;
+  --z-overlay: 60;
+
+  --track-iniciante: #e8c547;
+  --track-intermediario: #ff7a3c;
+  --track-avancado: #8b7cff;
+  --track-conclusao: #3ee0a0;
+}

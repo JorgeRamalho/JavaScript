@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sala de aula — Códice JS</title>
+    <meta
+      name="description"
+      content="Sala de aula do Códice JS com vídeos do curso de JavaScript do iniciante ao avançado até a conclusão final."
+    />
+    <link rel="canonical" href="http://127.0.0.1:4173/sala.html" />
+    <meta property="og:title" content="Sala de aula — Códice JS" />
+    <meta property="og:description" content="Vídeos, notas e conclusão de aulas da trilha JavaScript." />
+    <meta name="theme-color" content="#07070b" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <header class="site-header" data-header></header>
+    <div class="status-bar" data-status-bar role="region" aria-label="Variáveis da sessão"></div>
+    <main id="conteudo" class="wrap">
+      <header class="page-hero">
+        <p class="kicker">Sala de aula</p>
+        <h1>Do iniciante à conclusão, em vídeo.</h1>
+        <p class="lede">Escolha a aula no sumário. Assista. Marque como concluída. A barra de status e a curva se atualizam.</p>
+      </header>
+      <section class="classroom">
+        <nav class="syllabus" data-syllabus aria-label="Sumário do curso"></nav>
+        <div>
+          <div class="player-frame" data-player></div>
+          <div class="lesson-meta">
+            <span class="track-chip track-iniciante" data-lesson-track>Iniciante</span>
+            <span class="legend" data-lesson-time></span>
+            <button class="btn btn-ghost" type="button" data-prev>Aula anterior</button>
+            <button class="btn btn-ghost" type="button" data-next>Próxima aula</button>
+            <button class="btn btn-gold" type="button" data-complete>Marcar aula como concluída</button>
+          </div>
+          <article class="lesson-notes">
+            <h2 data-lesson-title>Aula</h2>
+            <p data-lesson-summary></p>
+            <p class="caption">Notas de estudo</p>
+            <p data-lesson-notes></p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" data-footer></footer>
+    <script type="module" src="js/sala.js"></script>
+  </body>
+</html>
