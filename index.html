@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Códice JS — observatório de estudos de JavaScript</title>
+    <title>Códice JS — portal de estudos em JavaScript do iniciante à conclusão</title>
     <meta
       name="description"
       content="Portal de estudos de JavaScript: documentação da linguagem, área do aluno, sala de aula em vídeo e oficina de exercícios."
@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
@@ -43,65 +43,516 @@
     <main id="conteudo">
       <section class="wrap hero">
         <div>
-          <p class="kicker">Escola exclusiva de JavaScript</p>
-          <h1>O arquivo vivo da linguagem, do <em>primeiro tipo</em> ao ofício.</h1>
+          <p class="kicker">Portal de estudos · JavaScript</p>
+          <h1 class="display">Do primeiro <code>tipo</code> à conclusão da trilha.</h1>
           <p class="lede">
-            Códice é um portal de estudos com matrícula, documentação da linguagem, sala de aula em vídeo
-            e uma curva de aprendizado que registra cada aula e cada exercício.
+            Códice JS é uma sala de estudo com identidade própria: tipografia de título, código monoespaçado
+            e uma barra de status que expõe cada variável da sua evolução.
           </p>
+          <p class="hero-actions">
+            <a class="btn btn-sky" data-cta-primary href="#matricula">Criar área do aluno</a>
+            <a class="btn btn-ghost" href="/pages/sala.html">Abrir sala de aula</a>
+          </p>
+          <p class="caption">Iniciante → intermediário → avançado → conclusão. Progresso gravado neste navegador.</p>
         </div>
-        <div class="orb-card" role="img" aria-label="Emblema JS em degradê cônico"></div>
-      </section>
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>const · let · arrow function · closure · promise · async · event loop · prototype · module · fetch · map · reduce ·</span>
-          <span>const · let · arrow function · closure · promise · async · event loop · prototype · module · fetch · map · reduce ·</span>
-        </div>
-      </div>
-      <section class="wrap section">
-        <div class="code-screen" data-code-screen aria-label="Terminal JavaScript em execução">
-          <div class="code-screen-chrome">
-            <span class="code-screen-dots" aria-hidden="true"></span>
-            <strong>node · codice.js</strong>
-          </div>
-          <pre class="code-screen-body" data-code-reel></pre>
+        <div class="orb-card" role="img" aria-label="Emblema JavaScript">
+          <span class="orb-ring" aria-hidden="true"></span>
+          <span class="orb-core">{ JS }</span>
         </div>
       </section>
       <section class="wrap section">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Trilhas</p>
-            <h2>Quatro estações, um único idioma.</h2>
+            <p class="kicker">Conceito</p>
+            <h2>Estudar como quem desenha um sistema</h2>
           </div>
-          <p class="legend">Iniciante → intermediário → avançado → conclusão</p>
+          <p class="legend">A interface mostra o estado. A trilha mostra o caminho. O exercício confirma o traço.</p>
         </div>
-        <div class="grid-4" data-home-tracks></div>
-      </section>
-      <section class="wrap section">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Método</p>
-            <h2>Identidade, tipografia e interface como parte do estudo.</h2>
-          </div>
-        </div>
-        <div class="grid-4">
+        <div class="card-grid">
           <article class="card">
-            <h3>Área do aluno</h3>
-            <p>Painel com anel de progresso, trilhas e o rastro das atividades. Cada variável da sessão vive na barra abaixo do cabeçalho.</p>
+            <h3>Curva de aprendizado</h3>
+            <p>Um gráfico em SVG acompanha o percentual global. Cada módulo acende um nó: da base à conclusão.</p>
+          </article>
+          <article class="card">
+            <h3>Sala em vídeo</h3>
+            <p>Aulas do Curso em Vídeo com o Prof. Gustavo Guanabara, notas de estudo e marcação de conclusão.</p>
           </article>
           <article class="card">
             <h3>Documentação</h3>
-            <p>Léxico da linguagem com busca, exemplos e um fio até a aula da sala. Aberta sem matrícula.</p>
-          </article>
-          <article class="card">
-            <h3>Sala de aula</h3>
-            <p>Vídeos do Curso em Vídeo (Gustavo Guanabara), do iniciante à conclusão, com notas e marcação de término.</p>
-          </article>
-          <article class="card">
-            <h3>Oficina</h3>
-            <p>Questões objetivas e atividades de código ligadas ao tema de cada aula, com correção imediata.</p>
+            <p>Léxico da linguagem: tipos, funções, DOM, promises e um fio até a aula correspondente.</p>
+            <p><a class="btn btn-sky" href="/pages/docs.html">Abrir docs</a></p>
           </article>
         </div>
+      </section>
+      <section class="wrap section twin-stage" aria-label="Terminal e curva viva">
+        <article class="twin-tile twin-terminal">
+          <p class="kicker">Terminal</p>
+          <h2>O runtime em movimento</h2>
+          <div class="code-screen code-screen-reel" data-code-screen aria-label="Terminal JavaScript em execução">
+            <div class="code-screen-chrome">
+              <span class="code-screen-dots" aria-hidden="true"></span>
+              <strong>node · codice.js</strong>
+            </div>
+            <pre class="code-screen-body" data-code-reel></pre>
+          </div>
+        </article>
+        <aside class="twin-tile twin-curve hero-panel">
+          <p class="kicker">Curva viva</p>
+          <h2>Quatro órbitas de domínio</h2>
+          <div class="orbit-board" data-orbit-board></div>
+        </aside>
+      </section>
+      <section class="wrap section lab-section" id="laboratorio">
+        <div class="lab-head">
+          <div>
+            <p class="kicker">Laboratório</p>
+            <h2>Exercícios e atividades de JavaScript</h2>
+            <p class="lede">
+              Treino por trilha: cada bloco abre a oficina com questões e código ligados ao tema da aula.
+              Atividade concluída credita 40 XP na barra de status.
+            </p>
+          </div>
+          <a class="btn btn-sky" href="/pages/exercicios.html">Abrir todos os exercícios</a>
+        </div>
+        <div class="lab-grid" data-lab-tracks></div>
+        <div class="lab-direct">
+          <p class="kicker">Acesso direto</p>
+          <h3>Atividades em destaque</h3>
+          <div class="lab-spotlight" data-lab-spotlight></div>
+        </div>
+      </section>
+      <section class="wrap section strategy-section" id="estrategia">
+        <div class="strategy-head">
+          <p class="kicker">Estratégia</p>
+          <h2>Como estudar para a curva subir de verdade</h2>
+          <p class="strategy-lead">
+            Dicas e práticas que o portal reforça: pouco tempo bem usado vale mais do que uma maratona sem exercício.
+          </p>
+        </div>
+        <div class="strategy-grid">
+          <article class="strategy-card">
+            <span>01</span>
+            <h3>Sessões curtas, quase todos os dias</h3>
+            <p>25 a 50 minutos bastam. A sequência na barra premia o hábito, não a noite inteira.</p>
+          </article>
+          <article class="strategy-card">
+            <span>02</span>
+            <h3>Assista e pratique no mesmo bloco</h3>
+            <p>Termine a aula na sala e resolva o exercício do tema em seguida. Ver sem escrever não grava.</p>
+          </article>
+          <article class="strategy-card">
+            <span>03</span>
+            <h3>Recuperação ativa antes de reler</h3>
+            <p>Tente responder de memória. Só então leia as notas. O erro imediato ensina mais que o vídeo de novo.</p>
+          </article>
+          <article class="strategy-card">
+            <span>04</span>
+            <h3>Espaçamento: volte ao nó anterior</h3>
+            <p>Revise um módulo já marcado como feito. A curva sobe quando o antigo ainda responde.</p>
+          </article>
+          <article class="strategy-card">
+            <span>05</span>
+            <h3>Um conceito, um programa mínimo</h3>
+            <p>Depois de arrays, escreva um programa só com arrays. Depois de funções, extraia uma <code>function</code>. Não acumule teoria.</p>
+          </article>
+          <article class="strategy-card">
+            <span>06</span>
+            <h3>Leia o próprio código em voz alta</h3>
+            <p>Se o nome da variável não cabe numa frase, troque. Tipografia do código é parte do aprendizado.</p>
+          </article>
+          <article class="strategy-card">
+            <span>07</span>
+            <h3>Trate o erro como material</h3>
+            <p>Copie a mensagem, isole a linha, teste de novo. <code>try/catch</code> e testes fixam o contrato, não a sorte.</p>
+          </article>
+          <article class="strategy-card">
+            <span>08</span>
+            <h3>Meta semanal visível</h3>
+            <p>Cadastre as horas na área do aluno e compare com o tempo da barra. Ajuste a meta, não desapareça.</p>
+          </article>
+          <article class="strategy-card">
+            <span>09</span>
+            <h3>Anote a decisão, não a transcrição</h3>
+            <p>Nas notas da aula, escreva por que escolheu aquele tipo ou aquele laço. O “porquê” reaparece no projeto final.</p>
+          </article>
+          <article class="strategy-card">
+            <span>10</span>
+            <h3>Feche com um sistema seu</h3>
+            <p>A conclusão não é assistir a última aula: é entregar entrada, regra, persistência e um teste que passa.</p>
+          </article>
+        </div>
+      </section>
+      <section class="wrap section console-lab" id="console">
+        <div class="enroll-head">
+          <p class="kicker">Console</p>
+          <h2>Teste comandos como no terminal</h2>
+          <p class="lede">
+            Digite uma expressão JavaScript, pressione Enter e leia o retorno. É um console de estudo:
+            simples, com dicas ao lado e exemplos prontos para clicar.
+          </p>
+        </div>
+        <div class="play-console">
+          <div class="code-screen play-console-screen" aria-label="Console JavaScript interativo">
+            <div class="code-screen-chrome">
+              <span class="code-screen-dots" aria-hidden="true"></span>
+              <strong>node · prova.js</strong>
+              <button class="play-console-clear" type="button" data-console-clear>Limpar</button>
+            </div>
+            <pre class="code-screen-body play-console-log" data-console-log></pre>
+            <form class="play-console-form" data-console-form>
+              <label class="sr-only" for="console-cmd">Comando JavaScript</label>
+              <span aria-hidden="true">›</span>
+              <input
+                id="console-cmd"
+                name="comando"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="typeof 'Códice'"
+                data-console-input
+              />
+              <button class="btn btn-gold" type="submit">Executar</button>
+            </form>
+          </div>
+          <aside class="play-console-help">
+            <h3>Como usar</h3>
+            <ol>
+              <li>Clique no campo com a seta ›</li>
+              <li>Escreva um comando, como <code>2 + 2</code></li>
+              <li>Pressione Enter ou o botão Executar</li>
+              <li>O retorno aparece em ouro. Erros aparecem em rosa</li>
+            </ol>
+            <h3>Dicas</h3>
+            <ul>
+              <li><code>typeof</code> diz o tipo de um valor</li>
+              <li>Use aspas em texto: <code>"Ada"</code></li>
+              <li>Arrays começam em zero: <code>[10, 20][0]</code></li>
+              <li><code>console.log(valor)</code> imprime sem ser o retorno</li>
+              <li>Seta para cima reabre o comando anterior</li>
+              <li>Digite <code>help</code> ou <code>clear</code> se precisar</li>
+            </ul>
+            <h3>Experimente</h3>
+            <div class="play-console-chips">
+              <button type="button" data-console-example="typeof 'Códice'">typeof 'Códice'</button>
+              <button type="button" data-console-example="2 + 2">2 + 2</button>
+              <button type="button" data-console-example="[1, 2, 3].map((n) => n * 2)">map × 2</button>
+              <button type="button" data-console-example="let xp = 50; return xp + 40">xp + 40</button>
+              <button type="button" data-console-example="'JavaScript'.includes('Script')">includes</button>
+              <button type="button" data-console-example="console.log('olá, aluno')">console.log</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section class="wrap section enroll-section" id="matricula">
+        <div class="enroll-head">
+          <p class="kicker">Matrícula</p>
+          <h2>Ficha completa do aluno</h2>
+          <p class="lede">
+            Preencha identidade, contato, endereço, perfil de estudo e conta. Os dados ficam neste navegador
+            e abrem a área do aluno com a trilha de JavaScript.
+          </p>
+        </div>
+        <form class="study-form enroll-form" id="form-matricula" novalidate>
+          <fieldset class="form-block">
+            <legend>Identidade</legend>
+            <div class="field-row">
+              <div class="field">
+                <label>
+                  <span>Nome completo</span>
+                  <input name="nome" type="text" autocomplete="name" minlength="3" required placeholder="Ada Lovelace" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Nome social / como quer ser chamado</span>
+                  <input name="nomeSocial" type="text" autocomplete="nickname" placeholder="Ada" />
+                </label>
+              </div>
+            </div>
+            <div class="field-row-3">
+              <div class="field">
+                <label>
+                  <span>CPF</span>
+                  <input name="cpf" type="text" inputmode="numeric" autocomplete="off" minlength="11" maxlength="14" required placeholder="000.000.000-00" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Data de nascimento</span>
+                  <input name="nascimento" type="date" autocomplete="bday" required />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Telefone / WhatsApp</span>
+                  <input name="telefone" type="tel" autocomplete="tel" required placeholder="(11) 90000-0000" />
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <label>
+                <span>Foto de perfil</span>
+                <input name="foto" type="file" accept="image/png,image/jpeg,image/webp" />
+              </label>
+              <small>Opcional. Apenas o nome do arquivo é guardado neste navegador.</small>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Contato e conta</legend>
+            <div class="field-row">
+              <div class="field">
+                <label>
+                  <span>E-mail</span>
+                  <input name="email" type="email" autocomplete="email" required placeholder="ada@codice.js" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Confirmar e-mail</span>
+                  <input name="emailConfirma" type="email" autocomplete="email" required />
+                </label>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>
+                  <span>Senha</span>
+                  <input name="senha" type="password" autocomplete="new-password" minlength="6" required placeholder="mínimo 6 caracteres" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Confirmar senha</span>
+                  <input name="confirma" type="password" autocomplete="new-password" minlength="6" required />
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <label>
+                <span>Portfólio ou GitHub</span>
+                <input name="portfolio" type="url" autocomplete="url" placeholder="https://github.com/seu-usuario" />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Endereço</legend>
+            <div class="field-row-3">
+              <div class="field">
+                <label>
+                  <span>CEP</span>
+                  <input name="cep" type="text" inputmode="numeric" autocomplete="postal-code" minlength="8" maxlength="9" required placeholder="00000-000" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Cidade</span>
+                  <input name="cidade" type="text" autocomplete="address-level2" required list="cidades-br" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>UF</span>
+                  <select name="uf" autocomplete="address-level1" required>
+                    <option value="">Selecione</option>
+                    <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                    <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                    <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                    <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                    <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                    <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                    <option>SP</option><option>SE</option><option>TO</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>
+                  <span>Logradouro</span>
+                  <input name="logradouro" type="text" autocomplete="address-line1" required placeholder="Rua, avenida…" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Número</span>
+                  <input name="numero" type="text" inputmode="numeric" required placeholder="100" />
+                </label>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>
+                  <span>Complemento</span>
+                  <input name="complemento" type="text" autocomplete="address-line2" placeholder="Apto, bloco…" />
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Bairro</span>
+                  <input name="bairro" type="text" required />
+                </label>
+              </div>
+            </div>
+            <datalist id="cidades-br">
+              <option value="São Paulo"></option>
+              <option value="Rio de Janeiro"></option>
+              <option value="Belo Horizonte"></option>
+              <option value="Brasília"></option>
+              <option value="Salvador"></option>
+              <option value="Fortaleza"></option>
+              <option value="Recife"></option>
+              <option value="Curitiba"></option>
+              <option value="Porto Alegre"></option>
+              <option value="Manaus"></option>
+            </datalist>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Perfil de estudo</legend>
+            <div class="field-row">
+              <div class="field">
+                <label>
+                  <span>Escolaridade</span>
+                  <select name="escolaridade" required>
+                    <option value="">Selecione</option>
+                    <option>Ensino médio incompleto</option>
+                    <option>Ensino médio completo</option>
+                    <option>Graduação em andamento</option>
+                    <option>Graduação completa</option>
+                    <option>Pós-graduação</option>
+                    <option>Outra</option>
+                  </select>
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Ocupação</span>
+                  <select name="ocupacao" required>
+                    <option value="">Selecione</option>
+                    <option>Estudante</option>
+                    <option>Em transição de carreira</option>
+                    <option>Profissional de outra área</option>
+                    <option>Já trabalho com tecnologia</option>
+                    <option>Autônomo</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>
+                  <span>Como conheceu o Códice</span>
+                  <select name="origem" required>
+                    <option value="">Selecione</option>
+                    <option>Indicação</option>
+                    <option>Busca no Google</option>
+                    <option>Redes sociais</option>
+                    <option>Curso em Vídeo / Guanabara</option>
+                    <option>Já era aluno de outro portal</option>
+                  </select>
+                </label>
+              </div>
+              <div class="field">
+                <label>
+                  <span>Nível de partida</span>
+                  <select name="nivelPartida" required>
+                    <option value="iniciante">Nunca escrevi JavaScript</option>
+                    <option value="intermediario">Já li um tutorial</option>
+                    <option value="avancado">Quero o event loop</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <label>
+                <span>Objetivo no curso</span>
+                <select name="objetivo" required>
+                  <option value="Dominar a sintaxe">Dominar a sintaxe</option>
+                  <option value="Construir interfaces">Construir interfaces</option>
+                  <option value="Entender o runtime">Entender o runtime</option>
+                  <option value="Concluir a trilha">Concluir a trilha</option>
+                </select>
+              </label>
+            </div>
+            <div class="field">
+              <label>
+                <span>Horas por semana <em data-hours-out>6h</em></span>
+                <input name="horasSemana" type="range" min="2" max="20" value="6" data-hours />
+              </label>
+              <small>Entre 2 e 20 horas. A meta aparece na área do aluno.</small>
+            </div>
+            <div class="field">
+              <span>Turno preferido</span>
+              <div class="choice-row">
+                <label class="check"><input name="turno" type="radio" value="manhã" required /> Manhã</label>
+                <label class="check"><input name="turno" type="radio" value="tarde" /> Tarde</label>
+                <label class="check"><input name="turno" type="radio" value="noite" /> Noite</label>
+                <label class="check"><input name="turno" type="radio" value="flexível" /> Flexível</label>
+              </div>
+            </div>
+            <div class="field">
+              <span>Tem computador próprio?</span>
+              <div class="choice-row">
+                <label class="check"><input name="computador" type="radio" value="sim" required /> Sim</label>
+                <label class="check"><input name="computador" type="radio" value="compartilhado" /> Compartilhado</label>
+                <label class="check"><input name="computador" type="radio" value="não" /> Ainda não</label>
+              </div>
+            </div>
+            <div class="field">
+              <span>Já instalou o Node.js?</span>
+              <div class="choice-row">
+                <label class="check"><input name="nodejs" type="radio" value="sim" required /> Sim</label>
+                <label class="check"><input name="nodejs" type="radio" value="não" /> Ainda não</label>
+                <label class="check"><input name="nodejs" type="radio" value="não sei" /> Não sei</label>
+              </div>
+            </div>
+            <div class="field">
+              <span>Interesses na trilha</span>
+              <div class="choice-row">
+                <label class="check"><input name="interesses" type="checkbox" value="Sintaxe" /> Sintaxe</label>
+                <label class="check"><input name="interesses" type="checkbox" value="DOM" /> DOM</label>
+                <label class="check"><input name="interesses" type="checkbox" value="Node.js" /> Node.js</label>
+                <label class="check"><input name="interesses" type="checkbox" value="Algoritmos" /> Algoritmos</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>
+                <span>Por que quer aprender JavaScript</span>
+                <textarea name="motivacao" maxlength="600" required placeholder="Conte em poucas linhas o que espera da trilha."></textarea>
+              </label>
+            </div>
+            <div class="field">
+              <label>
+                <span>Necessidades de acessibilidade</span>
+                <textarea name="acessibilidade" maxlength="400" placeholder="Opcional. Leitores de tela, legendas, contraste…"></textarea>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Termos</legend>
+            <label class="check">
+              <input name="maioridade" type="checkbox" required />
+              <span>Declaro ter 16 anos ou mais, ou autorização de responsável, para me matricular.</span>
+            </label>
+            <label class="check">
+              <input name="termos" type="checkbox" required />
+              <span>Comprometo-me a estudar no meu ritmo e marcar aulas só depois de assistir.</span>
+            </label>
+            <label class="check">
+              <input name="newsletter" type="checkbox" />
+              <span>Quero avisos de novas aulas e da oficina neste navegador.</span>
+            </label>
+          </fieldset>
+
+          <p class="form-feedback" id="matricula-feedback" role="status"></p>
+          <div class="cta-row">
+            <button class="btn btn-gold" type="submit" data-enroll-submit>Confirmar matrícula</button>
+            <a class="btn btn-ghost" href="/pages/cadastro.html">Já tenho cadastro</a>
+          </div>
+        </form>
       </section>
     </main>
     <footer class="site-footer" data-footer></footer>

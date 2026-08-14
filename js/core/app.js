@@ -72,13 +72,14 @@ export function emptyProgress() {
   };
 }
 
-export function createStudent({ nome, email, objetivo, nivelPartida, passwordHash }) {
+export function createStudent({ nome, email, objetivo, nivelPartida, passwordHash, perfil = {} }) {
   return {
     nome: nome.trim(),
     email: email.trim().toLowerCase(),
     objetivo,
     nivelPartida,
     passwordHash,
+    perfil,
     criadoEm: new Date().toISOString(),
     ...emptyProgress(),
   };
@@ -194,10 +195,11 @@ export function renderStatusBar() {
   if (!host) return;
   const stats = derived(currentUser());
   host.innerHTML = `
-    <dl class="status-track">
+    <dl class="wrap status-track">
       ${STATUS_VARS.map(([label, key]) => {
         const value = typeof key === "function" ? key(stats) : stats[key];
-        return `<div class="status-var" title="${label}: ${value}"><dt>${label}</dt><dd>${value}</dd></div>`;
+        const highlight = label === "XP" || label === "Progresso";
+        return `<div class="status-item status-var" title="${label}: ${value}"><dt>${label}</dt><dd>${highlight ? `<em>${value}</em>` : value}</dd></div>`;
       }).join("")}
     </dl>
   `;
@@ -208,17 +210,16 @@ export function renderHeader(pageId) {
   if (!host) return;
   const user = currentUser();
   host.innerHTML = `
-    <div class="header-bar">
+    <div class="wrap header-inner">
       <a class="brand" href="${ROUTES.inicio}" aria-label="Códice JS — início">
         <div class="brand-mark" aria-hidden="true"><span>JS</span></div>
-        <div class="brand-copy">
-          <small>Observatório</small>
-          <strong>Códice JS</strong>
-        </div>
+        <span class="brand-name">CÓDICE<span>JS</span></span>
       </a>
-      <nav class="site-nav" aria-label="Principal">
+      <nav class="nav site-nav" aria-label="Principal">
         ${NAV_PAGES.map((page) => {
-          const attrs = [];
+          const classes = ["nav-link"];
+          if (page.id === "download") classes.push("nav-link-download");
+          const attrs = [`class="${classes.join(" ")}"`];
           if (page.external) {
             attrs.push('target="_blank"', 'rel="noopener noreferrer"');
             if (page.title) attrs.push(`title="${page.title}"`);
@@ -230,14 +231,14 @@ export function renderHeader(pageId) {
       </nav>
       <div class="header-actions">
         <a
-          class="header-aluno"
+          class="nav-link header-aluno"
           href="${ROUTES.aluno}"
           ${pageId === "aluno" ? 'aria-current="page"' : ""}
         >Área do Aluno</a>
         ${
           user
             ? `<button class="btn btn-ghost" type="button" data-logout>Sair</button>`
-            : `<a class="btn btn-gold" href="${ROUTES.cadastro}">Entrar</a>`
+            : `<a class="btn-enter btn-gold" href="${ROUTES.cadastro}"><span>Entrar</span></a>`
         }
       </div>
     </div>
@@ -259,7 +260,7 @@ export function renderFooter() {
   if (!host) return;
   host.innerHTML = `
     <p>Códice JS · portal de estudos exclusivo de JavaScript.</p>
-    <p>Tipografia Fraunces, Syne, Figtree e IBM Plex Mono · identidade em ouro, âmbar e tinta.</p>
+    <p>Tipografia Fraunces · código em IBM Plex Mono · identidade em ouro, âmbar e tinta.</p>
   `;
 }
 

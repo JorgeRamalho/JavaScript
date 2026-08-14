@@ -33,6 +33,14 @@ export function salaUrl(aulaId) {
   return `${ROUTES.sala}?aula=${aulaId}`;
 }
 
+export function exerciciosUrl({ ex, trilha } = {}) {
+  const params = new URLSearchParams();
+  if (ex) params.set("ex", ex);
+  if (trilha) params.set("trilha", trilha);
+  const query = params.toString();
+  return query ? `${ROUTES.exercicios}?${query}` : ROUTES.exercicios;
+}
+
 export function youtubeEmbedUrl(videoId, playlistId = COURSES.guanabara.playlistId) {
   return `https://www.youtube.com/embed/${videoId}?list=${playlistId}&rel=0`;
 }

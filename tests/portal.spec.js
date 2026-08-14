@@ -4,7 +4,7 @@ const PUBLIC_PAGES = [
   {
     path: "/index.html",
     title: /Códice JS/i,
-    h1: /arquivo vivo/i,
+    h1: /conclusão da trilha/i,
     description: /JavaScript/i,
   },
   {
@@ -120,7 +120,7 @@ test.describe("Layout e identidade visual", () => {
         grad: styles.getPropertyValue("--grad-aurora"),
       };
     });
-    expect(fonts.body).toMatch(/Figtree/i);
+    expect(fonts.body).toMatch(/Fraunces/i);
     expect(fonts.h1).toMatch(/Fraunces/i);
     expect(fonts.gold).toBe("#e8c547");
     expect(fonts.display).toMatch(/Fraunces/i);

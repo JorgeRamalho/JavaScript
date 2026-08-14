@@ -125,6 +125,8 @@ export const EXERCISES = [
     tipo: "quiz",
     titulo: "Tipos e declarações",
     enunciado: "Qual declaração cria uma vinculação que não pode ser reatribuída?",
+    snippet: "const",
+    destaque: "A vinculação que não muda",
     opcoes: ["var nome = 'Ada'", "let nome = 'Ada'", "const nome = 'Ada'", "nome := 'Ada'"],
     correta: 2,
     explicacao: "const impede reatribuição da variável. O valor interno de objetos ainda pode mutar.",
@@ -137,6 +139,8 @@ export const EXERCISES = [
     titulo: "Dobrar valores",
     enunciado:
       "Implemente dobrar(lista) que recebe um array de números e devolve outro array com cada valor multiplicado por 2. Não mutar o original.",
+    snippet: "map()",
+    destaque: "Dobrar sem mutar",
     starter: "function dobrar(lista) {\n  // seu código\n}\n",
     testes: [
       { args: [[1, 2, 3]], esperado: [2, 4, 6] },
@@ -150,6 +154,8 @@ export const EXERCISES = [
     tipo: "quiz",
     titulo: "Eventos do documento",
     enunciado: "Qual método registra um ouvinte sem sobrescrever outros ouvintes já existentes?",
+    snippet: "addEventListener",
+    destaque: "Ouvintes do documento",
     opcoes: [
       "elemento.onclick = fn",
       "elemento.addEventListener('click', fn)",
@@ -167,6 +173,8 @@ export const EXERCISES = [
     titulo: "Somar depois",
     enunciado:
       "Implemente somarDepois(a, b) que devolve uma Promise resolvida com a + b após usar Promise.resolve (sem setTimeout).",
+    snippet: "Promise.resolve",
+    destaque: "Somar depois",
     starter: "function somarDepois(a, b) {\n  // seu código\n}\n",
     testes: [
       { args: [2, 3], esperado: 5, async: true },
@@ -180,6 +188,8 @@ export const EXERCISES = [
     tipo: "quiz",
     titulo: "Fila de microtasks",
     enunciado: "O que costuma rodar primeiro: uma Promise resolvida ou um setTimeout(fn, 0)?",
+    snippet: "microtask",
+    destaque: "Fila de Promises",
     opcoes: [
       "setTimeout, sempre",
       "A Promise (microtask) antes do timeout (macrotask)",
@@ -198,6 +208,8 @@ export const EXERCISES = [
     titulo: "Palíndromo",
     enunciado:
       "Implemente ehPalindromo(texto) que ignore espaços e maiúsculas. 'Roma me tem amor' deve ser verdadeiro.",
+    snippet: "ehPalindromo()",
+    destaque: "O desafio final",
     starter: "function ehPalindromo(texto) {\n  // seu código\n}\n",
     testes: [
       { args: ["ovo"], esperado: true },

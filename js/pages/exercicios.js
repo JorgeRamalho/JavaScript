@@ -6,7 +6,10 @@ initShell("exercicios");
 
 const list = document.querySelector("[data-exercise-list]");
 const stage = document.querySelector("[data-stage]");
-let current = EXERCISES[0];
+const params = new URLSearchParams(location.search);
+const byId = EXERCISES.find((item) => item.id === params.get("ex"));
+const byTrack = EXERCISES.find((item) => item.track === params.get("trilha"));
+let current = byId ?? byTrack ?? EXERCISES[0];
 
 function isDone(id) {
   return currentUser().exerciciosConcluidos.includes(id);
