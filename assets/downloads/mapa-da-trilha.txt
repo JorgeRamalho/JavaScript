@@ -1,0 +1,25 @@
+Códice JS — Mapa da trilha
+
+Iniciante
+1. JavaScript em 100 segundos
+2. Sintaxe, console e primeiros programas
+3. Crash course: do zero ao DOM
+4. Fundamentos completos
+
+Intermediário
+5. DOM Crash Course
+6. Assincronismo: callbacks, promises e async/await
+
+Avançado
+7. O event loop, explicado
+
+Conclusão
+8. Algoritmos e estruturas — projeto de conclusão
+
+Oficina
+- Tipos e declarações (quiz)
+- Dobrar valores (código)
+- Eventos do documento (quiz)
+- Somar depois (código)
+- Fila de microtasks (quiz)
+- Palíndromo (código)

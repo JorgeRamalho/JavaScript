@@ -1,0 +1,30 @@
+Códice JS — Folha de consulta
+
+const  valor que não será reatribuído
+let    valor que pode mudar
+===    comparação estrita (use esta)
+typeof "string" | "number" | "boolean" | "undefined" | "object" | "function"
+
+Funções
+function nome(a) { return a; }
+const nome = (a) => a;
+
+Arrays
+lista.map((n) => n * 2)
+lista.filter((n) => n > 0)
+lista.reduce((acc, n) => acc + n, 0)
+
+DOM
+document.querySelector(".alvo")
+elemento.addEventListener("click", fn)
+elemento.textContent = "seguro"
+
+Assíncrono
+const dados = await (await fetch(url)).json();
+Promise.resolve(valor)
+microtask (Promise) corre antes de setTimeout(0)
+
+Módulos
+<script type="module" src="app.js"></script>
+import { nome } from "./arquivo.js";
+export function nome() {}

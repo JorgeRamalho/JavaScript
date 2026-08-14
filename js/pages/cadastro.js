@@ -87,7 +87,7 @@ form.addEventListener("submit", async (event) => {
   saveUser(student);
   login(email);
   show("ok", "Matrícula criada. Abrindo a área do aluno…");
-  location.href = ROUTES.aluno;
+  location.href = params.get("next") || ROUTES.aluno;
 });
 
 if (currentUser() && !modoEntrar) {

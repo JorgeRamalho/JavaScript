@@ -12,14 +12,11 @@ import { ROUTES } from "./routes.js";
 const KEY_USERS = "codice.users";
 const KEY_SESSION = "codice.session";
 
-export const PAGES = [
-  { href: ROUTES.inicio, label: "Início", id: "inicio" },
+export const NAV_PAGES = [
   { href: ROUTES.cadastro, label: "Cadastro", id: "cadastro" },
   { href: ROUTES.docs, label: "Documentação", id: "docs" },
-  { href: ROUTES.aluno, label: "Área do aluno", id: "aluno", auth: true },
-  { href: ROUTES.evolucao, label: "Evolução", id: "evolucao", auth: true },
-  { href: ROUTES.sala, label: "Sala de aula", id: "sala", auth: true },
-  { href: ROUTES.exercicios, label: "Exercícios", id: "exercicios", auth: true },
+  { href: ROUTES.sala, label: "Sala de Aula", id: "sala" },
+  { href: ROUTES.download, label: "Download", id: "download" },
 ];
 
 function readJson(key, fallback) {
@@ -97,7 +94,7 @@ export function logout() {
 
 export function requireAuth() {
   if (currentUser()) return currentUser();
-  const next = encodeURIComponent(location.pathname || ROUTES.aluno);
+  const next = encodeURIComponent(`${location.pathname}${location.search}` || ROUTES.aluno);
   location.href = `${ROUTES.cadastro}?next=${next}&modo=entrar`;
   return null;
 }
@@ -188,14 +185,7 @@ const STATUS_VARS = [
   ["Nível", "nivel"],
   ["XP", "xp"],
   ["Progresso", (stats) => `${stats.progresso}%`],
-  ["Trilha", "trilha"],
-  ["Aula atual", "modulo"],
-  ["Aulas", "aulas"],
   ["Exercícios", "exercicios"],
-  ["Sequência", (stats) => `${stats.streak} d`],
-  ["Tempo", "tempo"],
-  ["Liga", "liga"],
-  ["Conquistas", "conquistas"],
   ["Objetivo", "objetivo"],
 ];
 
@@ -218,26 +208,39 @@ export function renderHeader(pageId) {
   if (!host) return;
   const user = currentUser();
   host.innerHTML = `
-    <a class="brand" href="${ROUTES.inicio}" aria-label="Códice JS — início">
-      <div class="brand-mark" aria-hidden="true"><span>JS</span></div>
-      <div class="brand-copy">
-        <small>Observatório</small>
-        <strong>Códice JS</strong>
+    <div class="header-bar">
+      <a class="brand" href="${ROUTES.inicio}" aria-label="Códice JS — início">
+        <div class="brand-mark" aria-hidden="true"><span>JS</span></div>
+        <div class="brand-copy">
+          <small>Observatório</small>
+          <strong>Códice JS</strong>
+        </div>
+      </a>
+      <nav class="site-nav" aria-label="Principal">
+        ${NAV_PAGES.map((page) => {
+          const attrs = [];
+          if (page.external) {
+            attrs.push('target="_blank"', 'rel="noopener noreferrer"');
+            if (page.title) attrs.push(`title="${page.title}"`);
+          } else if (page.id === pageId) {
+            attrs.push('aria-current="page"');
+          }
+          return `<a href="${page.href}" ${attrs.join(" ")}>${page.label}</a>`;
+        }).join("")}
+      </nav>
+      <div class="header-actions">
+        <a
+          class="header-aluno"
+          href="${ROUTES.aluno}"
+          ${pageId === "aluno" ? 'aria-current="page"' : ""}
+        >Área do Aluno</a>
+        ${
+          user
+            ? `<button class="btn btn-ghost" type="button" data-logout>Sair</button>`
+            : `<a class="btn btn-gold" href="${ROUTES.cadastro}">Entrar</a>`
+        }
       </div>
-    </a>
-    <nav class="site-nav" aria-label="Principal">
-      ${PAGES.filter((page) => (!page.auth || user) && !(page.id === "cadastro" && user))
-        .map(
-          (page) =>
-            `<a href="${page.href}" ${page.id === pageId ? 'aria-current="page"' : ""}>${page.label}</a>`
-        )
-        .join("")}
-      ${
-        user
-          ? `<button class="btn btn-ghost" type="button" data-logout>Sair</button>`
-          : `<a class="btn btn-gold" href="${ROUTES.cadastro}">Entrar no Códice</a>`
-      }
-    </nav>
+    </div>
   `;
   host.querySelector("[data-logout]")?.addEventListener("click", () => {
     logout();

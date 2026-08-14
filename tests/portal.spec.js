@@ -19,6 +19,12 @@ const PUBLIC_PAGES = [
     h1: /léxico da linguagem/i,
     description: /Documentação de JavaScript/i,
   },
+  {
+    path: "/pages/download.html",
+    title: /Download/i,
+    h1: /trilha para fora/i,
+    description: /folha de consulta/i,
+  },
 ];
 
 const STATUS_LABELS = [
@@ -26,14 +32,7 @@ const STATUS_LABELS = [
   "Nível",
   "XP",
   "Progresso",
-  "Trilha",
-  "Aula atual",
-  "Aulas",
   "Exercícios",
-  "Sequência",
-  "Tempo",
-  "Liga",
-  "Conquistas",
   "Objetivo",
 ];
 
@@ -128,6 +127,14 @@ test.describe("Layout e identidade visual", () => {
     expect(fonts.grad).toMatch(/linear-gradient/i);
   });
 
+  test("menu central na ordem pedida e Área do Aluno ao lado do botão", async ({ page }) => {
+    await page.goto("/index.html");
+    const nav = page.locator(".site-nav a");
+    await expect(nav).toHaveText(["Cadastro", "Documentação", "Sala de Aula", "Download"]);
+    await expect(page.locator(".header-actions .header-aluno")).toHaveText("Área do Aluno");
+    await expect(page.locator(".header-actions .btn-gold")).toHaveText("Entrar");
+  });
+
   test("favicon svg e ico estão ligados e respondem", async ({ page, request }) => {
     const svg = await request.get("/assets/favicon.svg");
     const ico = await request.get("/assets/favicon.ico");
@@ -165,11 +172,20 @@ test.describe("Funcionalidade da trilha", () => {
   test("sala de aula carrega vídeo e conclui aula", async ({ page }) => {
     await matricular(page, `sala-${Date.now()}`);
     await page.goto("/pages/sala.html");
-    await expect(page.locator("h1")).toContainText(/iniciante à conclusão/i);
+    await expect(page.locator("h1")).toBeVisible();
+    await expect(page.locator(".playlist h2")).toContainText(/iniciante à conclusão/i);
     await expect(page.locator(".player-frame iframe")).toHaveAttribute("src", /youtube\.com\/embed/);
-    await page.getByRole("button", { name: "Marcar aula como concluída" }).click();
+    await expect(page.locator(".lesson-card")).toHaveCount(8);
+    await page.getByRole("button", { name: "Marcar como concluída" }).click();
     await expect(page.getByRole("button", { name: "Aula concluída" })).toBeDisabled();
-    await expect(page.locator(".status-var dd").filter({ hasText: "1/8" }).first()).toBeVisible();
+    await expect(page.locator(".status-var dd").filter({ hasText: "50" }).first()).toBeVisible();
+  });
+
+  test("visitante assiste à sala sem ser enviado ao cadastro", async ({ page }) => {
+    await page.goto("/pages/sala.html");
+    await expect(page).toHaveURL(/\/pages\/sala\.html/);
+    await expect(page.locator(".player-frame iframe")).toHaveAttribute("src", /youtube\.com\/embed/);
+    await expect(page.locator("h1")).toBeVisible();
   });
 
   test("oficina corrige quiz e credita exercício", async ({ page }) => {
