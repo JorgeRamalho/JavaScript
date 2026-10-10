@@ -1,6 +1,6 @@
 📌##JavaScript ☕ - High Scholl Ltda
 
-🌐 ## Site Link do projeto online: https://java-script-scholl.vercel.app/
+🌐 ## Site Link do projeto online: https://java-script-school.vercel.app/
 
 📂 ## Repositório: https://github.com//JorgeRamalho/JavaScript
 
